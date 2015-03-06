@@ -365,7 +365,7 @@ public class NavigationFormatParser {
         if (format instanceof TcxFormat)
             routeToWrite.ensureIncreasingTime();
         if (parserCallback != null)
-            parserCallback.preprocess(routeToWrite, format);
+            parserCallback.process(routeToWrite, format);
     }
 
     @SuppressWarnings("unchecked")
