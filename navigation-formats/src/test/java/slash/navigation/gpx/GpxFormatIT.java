@@ -88,6 +88,7 @@ public class GpxFormatIT {
             GpxUtil.unmarshal11(reader);
             assertTrue(false);
         } catch (JAXBException e) {
+            // intentionally left empty
         }
     }
 
@@ -107,6 +108,7 @@ public class GpxFormatIT {
             GpxUtil.unmarshal10(reader);
             assertTrue(false);
         } catch (JAXBException e) {
+            // intentionally left empty
         }
     }
 

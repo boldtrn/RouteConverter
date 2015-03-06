@@ -31,6 +31,10 @@ import slash.navigation.copilot.CoPilot6Format;
 import slash.navigation.copilot.CoPilot7Format;
 import slash.navigation.copilot.CoPilot8Format;
 import slash.navigation.copilot.CoPilot9Format;
+import slash.navigation.csv.Excel2008Format;
+import slash.navigation.csv.Excel97Format;
+import slash.navigation.csv.ExcelFormat;
+import slash.navigation.csv.ExcelRoute;
 import slash.navigation.fpl.GarminFlightPlanFormat;
 import slash.navigation.fpl.GarminFlightPlanPosition;
 import slash.navigation.fpl.GarminFlightPlanRoute;
@@ -446,6 +450,12 @@ public abstract class BaseRoute<P extends BaseNavigationPosition, F extends Base
     public abstract P createPosition(Double longitude, Double latitude, Double elevation, Double speed, CompactCalendar time, String description);
 
     protected abstract BcrRoute asBcrFormat(BcrFormat format);
+
+//    protected abstract ExcelRoute asExcelFormat(ExcelFormat format);
+    protected ExcelRoute asExcelFormat(ExcelFormat format) {
+        return new ExcelRoute(format, getCharacteristics(), getName(), (List<Wgs84Position>) getPositions()); // TODO fix me
+    }
+
     protected abstract GoPalRoute asGoPalRouteFormat(GoPalRouteFormat format);
     protected abstract GpxRoute asGpxFormat(GpxFormat format);
     protected abstract KmlRoute asKmlFormat(BaseKmlFormat format);
@@ -502,6 +512,20 @@ public abstract class BaseRoute<P extends BaseNavigationPosition, F extends Base
         if (getFormat() instanceof CoPilot9Format)
             return (SimpleRoute) this;
         return asSimpleFormat(new CoPilot9Format());
+    }
+
+    @SuppressWarnings("UnusedDeclaration")
+    public ExcelRoute asExcel97Format() {
+        if (getFormat() instanceof Excel97Format)
+            return (ExcelRoute) this;
+        return asExcelFormat(new Excel97Format());
+    }
+
+    @SuppressWarnings("UnusedDeclaration")
+    public ExcelRoute asExcel2008Format() {
+        if (getFormat() instanceof Excel2008Format)
+            return (ExcelRoute) this;
+        return asExcelFormat(new Excel2008Format());
     }
 
     @SuppressWarnings("UnusedDeclaration")

@@ -28,6 +28,8 @@ import slash.navigation.copilot.CoPilot6Format;
 import slash.navigation.copilot.CoPilot7Format;
 import slash.navigation.copilot.CoPilot8Format;
 import slash.navigation.copilot.CoPilot9Format;
+import slash.navigation.csv.Excel2008Format;
+import slash.navigation.csv.Excel97Format;
 import slash.navigation.fpl.GarminFlightPlanFormat;
 import slash.navigation.gopal.GoPal3RouteFormat;
 import slash.navigation.gopal.GoPal5RouteFormat;
@@ -148,6 +150,8 @@ public final class NavigationFormats {
         addFormat(NavigatingPoiWarnerFormat.class);
         addFormat(NmnRouteFormat.class);
         addFormat(ApeMapFormat.class);
+        addFormat(Excel97Format.class);
+        addFormat(Excel2008Format.class);
         addFormat(ZipFormat.class);
 
         // GPSBabel-based formats
